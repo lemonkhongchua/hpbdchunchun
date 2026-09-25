@@ -1,12 +1,12 @@
-<!DOCTYPE html»
-<html lang="vi"»
-<head»
-  <meta charset="UTF-8"»
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, touch-action: none;"»
-  <title»Happy Birthday Thành Trung ✨</title»
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"»</script»
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"»
-  <style»
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, touch-action: none;">
+  <title>Happy Birthday Thành Trung ✨</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
     * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
     body { background: radial-gradient(circle at center, #350529 0%, #1a021f 55%, #0a000f 100%); min-height: 100vh; overflow: hidden; font-family: 'Quicksand', sans-serif; color: #fff; }
 
@@ -80,67 +80,67 @@
     .controls { position: fixed; bottom: 20px; right: 20px; z-index: 70; }
     .btn-sound { background: rgba(255, 77, 109, 0.4); border: 1px solid rgba(255, 143, 177, 0.8); color: #fff; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
     .btn-sound:hover { background: rgba(255, 77, 109, 0.9); transform: scale(1.1); }
-  </style»
-</head»
-<body»
-  <div id="petals-container"»</div»
-  <div class="floral-border top-floral"»
-    <div class="flower-cluster"»🌸🌿🌺</div»<div class="flower-cluster"»🌷🍃🌹</div»<div class="flower-cluster"»🌺🌿🌸</div»
-  </div»
-  <div class="floral-border bottom-floral"»
-    <div class="flower-cluster"»🌹🍃🌷</div»<div class="flower-cluster"»🌸🌿🌺</div»<div class="flower-cluster"»🌷🍃🌹</div»
-  </div»
+  </style>
+</head>
+<body>
+  <div id="petals-container"></div>
+  <div class="floral-border top-floral">
+    <div class="flower-cluster">🌸🌿🌺</div><div class="flower-cluster">🌷🍃🌹</div><div class="flower-cluster">🌺🌿🌸</div>
+  </div>
+  <div class="floral-border bottom-floral">
+    <div class="flower-cluster">🌹🍃🌷</div><div class="flower-cluster">🌸🌿🌺</div><div class="flower-cluster">🌷🍃🌹</div>
+  </div>
 
-  <div id="intro-screen"»
-    <h1 class="main-title"»Chúc Mừng Sinh Nhật<br»Thành Trung ✨</h1»
-    <div class="intro-cake-btn" id="cake-btn"»
-      <svg class="cake-svg" viewBox="0 0 130 130" fill="none"»
-        <circle cx="65" cy="22" r="14" fill="#ffd166" opacity="0.3" class="flame-anim"/»
-        <path d="M65 14C62 21 60 24 65 30C70 24 68 21 65 14Z" fill="#ffb703" class="flame-anim"/»
-        <path d="M65 17C63.5 21 62.5 23 65 27C67.5 23 66.5 21 65 17Z" fill="#fff" class="flame-anim"/»
-        <rect x="62.5" y="30" width="5" height="18" rx="2.5" fill="#ffe4e6"/»
-        <line x1="62.5" y1="35" x2="67.5" y2="38" stroke="#ff4d6d" stroke-width="1.5"/»
-        <line x1="62.5" y1="41" x2="67.5" y2="44" stroke="#ff4d6d" stroke-width="1.5"/»
-        <rect x="36" y="48" width="58" height="30" rx="8" fill="#e05780"/»
-        <path d="M36 56C40 56 42 61 46 61C50 61 52 56 56 56C60 56 62 61 66 61C70 61 72 56 76 56C80 56 82 61 86 61C90 61 92 56 94 56V48H36V56Z" fill="#fff0f3"/»
-        <circle cx="50" cy="65" r="2.2" fill="#fff" opacity="0.9"/»
-        <circle cx="65" cy="67" r="2.2" fill="#fff" opacity="0.9"/»
-        <circle cx="80" cy="65" r="2.2" fill="#fff" opacity="0.9"/»
-        <rect x="22" y="78" width="86" height="38" rx="10" fill="#9d4edd"/»
-        <path d="M22 86C27 86 30 92 35 92C40 92 43 86 48 86C53 86 56 92 61 92C66 92 69 86 74 86C79 86 82 92 87 92C92 92 95 86 100 86C104 86 106 90 108 90V78H22V86Z" fill="#ff758f"/»
-        <circle cx="38" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/»
-        <circle cx="56" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/»
-        <circle cx="74" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/»
-        <circle cx="92" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/»
-        <rect x="14" y="115" width="102" height="7" rx="3.5" fill="#ffd1dc" opacity="0.9"/»
-      </svg»
-    </div»
-    <div class="hint-text"»✨ Chạm vào bánh sinh nhật để mở quà ✨</div»
-  </div»
+  <div id="intro-screen">
+    <h1 class="main-title">Chúc Mừng Sinh Nhật<br>Thành Trung ✨</h1>
+    <div class="intro-cake-btn" id="cake-btn">
+      <svg class="cake-svg" viewBox="0 0 130 130" fill="none">
+        <circle cx="65" cy="22" r="14" fill="#ffd166" opacity="0.3" class="flame-anim"/>
+        <path d="M65 14C62 21 60 24 65 30C70 24 68 21 65 14Z" fill="#ffb703" class="flame-anim"/>
+        <path d="M65 17C63.5 21 62.5 23 65 27C67.5 23 66.5 21 65 17Z" fill="#fff" class="flame-anim"/>
+        <rect x="62.5" y="30" width="5" height="18" rx="2.5" fill="#ffe4e6"/>
+        <line x1="62.5" y1="35" x2="67.5" y2="38" stroke="#ff4d6d" stroke-width="1.5"/>
+        <line x1="62.5" y1="41" x2="67.5" y2="44" stroke="#ff4d6d" stroke-width="1.5"/>
+        <rect x="36" y="48" width="58" height="30" rx="8" fill="#e05780"/>
+        <path d="M36 56C40 56 42 61 46 61C50 61 52 56 56 56C60 56 62 61 66 61C70 61 72 56 76 56C80 56 82 61 86 61C90 61 92 56 94 56V48H36V56Z" fill="#fff0f3"/>
+        <circle cx="50" cy="65" r="2.2" fill="#fff" opacity="0.9"/>
+        <circle cx="65" cy="67" r="2.2" fill="#fff" opacity="0.9"/>
+        <circle cx="80" cy="65" r="2.2" fill="#fff" opacity="0.9"/>
+        <rect x="22" y="78" width="86" height="38" rx="10" fill="#9d4edd"/>
+        <path d="M22 86C27 86 30 92 35 92C40 92 43 86 48 86C53 86 56 92 61 92C66 92 69 86 74 86C79 86 82 92 87 92C92 92 95 86 100 86C104 86 106 90 108 90V78H22V86Z" fill="#ff758f"/>
+        <circle cx="38" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/>
+        <circle cx="56" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/>
+        <circle cx="74" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/>
+        <circle cx="92" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/>
+        <rect x="14" y="115" width="102" height="7" rx="3.5" fill="#ffd1dc" opacity="0.9"/>
+      </svg>
+    </div>
+    <div class="hint-text">✨ Chạm vào bánh sinh nhật để mở quà ✨</div>
+  </div>
 
-  <div id="wish-screen"»
-    <h2 class="wish-title"»Chun ước đi nè, ước xong thì thổi nến nha! 🎂</h2»
-    <div class="wish-cake-container"»
-      <div class="wish-cake-3d" id="wish-cake-3d"»</div»
-    </div»
-    <button id="blow-btn" class="btn-blow"»Thổi nến 🌬️</button»
-  </div»
+  <div id="wish-screen">
+    <h2 class="wish-title">Chun ước đi nè, ước xong thì thổi nến nha! 🎂</h2>
+    <div class="wish-cake-container">
+      <div class="wish-cake-3d" id="wish-cake-3d"></div>
+    </div>
+    <button id="blow-btn" class="btn-blow">Thổi nến 🌬️</button>
+  </div>
 
-  <div id="carousel-scene"»
-    <div class="zoom-hint"»🖱️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div»
-    <div id="carousel-world"»</div»
-  </div»
+  <div id="carousel-scene">
+    <div class="zoom-hint">🖱️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div>
+    <div id="carousel-world"></div>
+  </div>
 
-  <div class="controls"»
-    <button class="btn-sound" id="btn-toggle-sound" title="Bật/Tắt nhạc"»🎵</button»
-  </div»
+  <div class="controls">
+    <button class="btn-sound" id="btn-toggle-sound" title="Bật/Tắt nhạc">🎵</button>
+  </div>
 
-  <audio id="custom-audio" src="nhac.mp3" preload="auto" loop»</audio»
+  <audio id="custom-audio" src="nhac.mp3" preload="auto" loop></audio>
 
-  <script»
+  <script>
     const petalsContainer = document.getElementById('petals-container');
     const petalEmojis = ['🌸', '💮', '🍃', '✨', '💖'];
-    setInterval(() =» {
+    setInterval(() => {
       const petal = document.createElement('div');
       petal.className = 'petal';
       petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
@@ -149,7 +149,7 @@
       petal.style.animationDuration = \`\${duration}s\`;
       petal.style.setProperty('--end-x', \`\${(Math.random() - 0.5) * 250}px\`);
       petalsContainer.appendChild(petal);
-      setTimeout(() =» petal.remove(), duration * 1000);
+      setTimeout(() => petal.remove(), duration * 1000);
     }, 350);
 
     const wishes = [
@@ -180,9 +180,9 @@
     let userPhotos = ["anh1.jpg", "anh2.jpg", "anh3.jpg"];
     let soundOn = true;
     const customAudio = document.getElementById('custom-audio');
-    function startMusic() { customAudio.play().catch(e =» console.log("Play blocked")); }
+    function startMusic() { customAudio.play().catch(e => console.log("Play blocked")); }
     function stopMusic() { customAudio.pause(); }
-    document.getElementById('btn-toggle-sound').addEventListener('click', (e) =» {
+    document.getElementById('btn-toggle-sound').addEventListener('click', (e) => {
       soundOn = !soundOn; soundOn ? startMusic() : stopMusic(); e.target.innerHTML = soundOn ? '🎵' : '🔇';
     });
 
@@ -218,26 +218,26 @@
     const carouselWorld = document.getElementById('carousel-world');
     const wishCakeContainer = document.getElementById('wish-cake-3d');
     
-    document.getElementById('cake-btn').addEventListener('click', () =» {
+    document.getElementById('cake-btn').addEventListener('click', () => {
       wishCakeContainer.innerHTML = '';
       wishCakeContainer.appendChild(create3DCake(false));
       introScreen.style.opacity = '0'; introScreen.style.transform = 'scale(0.9)';
-      setTimeout(() =» {
+      setTimeout(() => {
         introScreen.style.display = 'none'; wishScreen.style.display = 'flex';
-        setTimeout(() =» wishScreen.style.opacity = '1', 50);
+        setTimeout(() => wishScreen.style.opacity = '1', 50);
       }, 800);
     });
 
-    document.getElementById('blow-btn').addEventListener('click', () =» {
+    document.getElementById('blow-btn').addEventListener('click', () => {
       wishCakeContainer.classList.add('blow-active');
-      setTimeout(() =» {
+      setTimeout(() => {
         confetti({ particleCount: 200, spread: 180, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ff9ebb', '#ffd166', '#ffffff'] });
         startMusic();
         wishScreen.style.opacity = '0';
-        setTimeout(() =» {
+        setTimeout(() => {
           wishScreen.style.display = 'none'; carouselScene.style.display = 'block';
           build3DCarousel();
-          setTimeout(() =» carouselScene.style.opacity = '1', 50);
+          setTimeout(() => carouselScene.style.opacity = '1', 50);
         }, 800);
       }, 1200);
     });
@@ -251,8 +251,8 @@
       carouselWorld.appendChild(create3DCake(true));
 
       const pool = [];
-      wishes.forEach(w =» pool.push({ type: 'text', content: w }));
-      userPhotos.forEach(p =» pool.push({ type: 'photo', content: p }));
+      wishes.forEach(w => pool.push({ type: 'text', content: w }));
+      userPhotos.forEach(p => pool.push({ type: 'photo', content: p }));
       
       const third = Math.ceil(pool.length / 3);
       const topTier = pool.slice(0, third);
@@ -262,16 +262,16 @@
 
       function createTier(items, yOffset) {
         const total = items.length;
-        items.forEach((data, i) =» {
+        items.forEach((data, i) => {
           const el = document.createElement('div'); el.className = 'carousel-item';
           if (data.type === 'text') {
-            el.innerHTML = \`<div class="wish-card"»\${data.content}</div»\`;
+            el.innerHTML = \`<div class="wish-card">\${data.content}</div>\`;
           } else {
-            el.innerHTML = \`<div class="photo-card"»<img src="\${data.content}" alt="pic" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=60'"»</div»\`;
+            el.innerHTML = \`<div class="photo-card"><img src="\${data.content}" alt="pic" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=60'"></div>\`;
           }
           const angle = (i / total) * 360;
           el.style.transform = \`translate(-50%, -50%) rotateY(\${angle}deg) translateZ(\${radius}px) translateY(\${yOffset}px)\`;
-          el.addEventListener('click', (e) =» confetti({ particleCount: 25, origin: { x: e.clientX/innerWidth, y: e.clientY/innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] }));
+          el.addEventListener('click', (e) => confetti({ particleCount: 25, origin: { x: e.clientX/innerWidth, y: e.clientY/innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] }));
           carouselWorld.appendChild(el);
         });
       }
@@ -288,18 +288,18 @@
     }
     requestAnimationFrame(animateCarousel);
 
-    window.addEventListener('mousedown', e =» { isDragging = true; prevX = e.clientX; });
-    window.addEventListener('mousemove', e =» {
+    window.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; });
+    window.addEventListener('mousemove', e => {
       if (!isDragging) return; rotY += (e.clientX - prevX) * 0.35; prevX = e.clientX;
     });
-    window.addEventListener('mouseup', () =» isDragging = false);
+    window.addEventListener('mouseup', () => isDragging = false);
 
     let initialTouchDist = 0;
-    window.addEventListener('touchstart', e =» { 
+    window.addEventListener('touchstart', e => { 
       if (e.touches.length === 1) { isDragging = true; prevX = e.touches[0].clientX; } 
       else if (e.touches.length === 2) initialTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
     });
-    window.addEventListener('touchmove', e =» {
+    window.addEventListener('touchmove', e => {
       if (e.touches.length === 1 && isDragging) {
         rotY += (e.touches[0].clientX - prevX) * 0.45; prevX = e.touches[0].clientX;
       } else if (e.touches.length === 2) {
@@ -309,13 +309,13 @@
         initialTouchDist = currentDist;
       }
     });
-    window.addEventListener('touchend', () =» isDragging = false);
-    window.addEventListener('wheel', e =» {
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('wheel', e => {
       if (carouselScene.style.display === 'block') {
         currentZoom -= e.deltaY * 0.65;
         currentZoom = Math.max(minZoom, Math.min(maxZoom, currentZoom));
       }
     });
-  </script»
-</body»
-</html»
+  </script>
+</body>
+</html>
