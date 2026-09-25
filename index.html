@@ -6,11 +6,98 @@
   <title>Happy Birthday Thành Trung ✨</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+    body { background: radial-gradient(circle at center, #350529 0%, #1a021f 55%, #0a000f 100%); min-height: 100vh; overflow: hidden; font-family: 'Quicksand', sans-serif; color: #fff; }
+
+    #petals-container { position: fixed; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+    .petal { position: absolute; top: -20px; font-size: clamp(12px, 2.5vw, 18px); opacity: 0.75; animation: fall linear infinite; text-shadow: 0 0 6px rgba(255, 182, 193, 0.9); }
+    @keyframes fall { 0% { transform: translate(0, 0) rotate(0deg); opacity: 0; } 10% { opacity: 0.85; } 90% { opacity: 0.85; } 100% { transform: translate(var(--end-x), 105vh) rotate(360deg); opacity: 0; } }
+
+    .floral-border { position: fixed; left: 0; width: 100%; height: 65px; pointer-events: none; z-index: 60; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; filter: drop-shadow(0 0 15px rgba(255, 114, 182, 0.8)); }
+    .top-floral { top: 0; background: linear-gradient(to bottom, rgba(42, 6, 36, 0.95), transparent); }
+    .bottom-floral { bottom: 0; background: linear-gradient(to top, rgba(16, 1, 20, 0.95), transparent); }
+    .flower-cluster { display: flex; gap: 15px; font-size: 28px; animation: gentleBreeze 4s ease-in-out infinite alternate; }
+    @keyframes gentleBreeze { 0% { transform: translateY(0) rotate(-3deg); } 100% { transform: translateY(5px) rotate(3deg); } }
+
+    #intro-screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 50; text-align: center; transition: all 0.8s ease-in-out; }
+    
+    /* Chữ chính: Trắng tinh & Phát sáng Neon */
+    .main-title { 
+      font-family: 'Dancing Script', cursive; 
+      font-size: clamp(45px, 10vw, 75px); 
+      line-height: 1.2; 
+      color: #ffffff; 
+      text-shadow: 0 0 10px #ffb3d9, 0 0 20px #ff4d6d, 0 0 40px #ff4d6d, 0 0 60px #ff4d6d; 
+      margin-bottom: 45px; 
+    }
+
+    .intro-cake-btn { position: relative; width: 180px; height: 180px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; animation: float 3.5s ease-in-out infinite; }
+    .intro-cake-btn:hover { transform: scale(1.15); }
+    @keyframes float { 0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 15px rgba(255, 77, 109, 0.5)); } 50% { transform: translateY(-12px); filter: drop-shadow(0 0 30px rgba(255, 77, 109, 0.8)); } }
+    .cake-svg { width: 150px; height: 150px; }
+    .flame-anim { animation: flicker 1s infinite alternate; transform-origin: 65px 23px; }
+    @keyframes flicker { 0% { transform: scale(0.9) rotate(-3deg); filter: drop-shadow(0 0 10px #ffb703); } 100% { transform: scale(1.15) rotate(3deg); filter: drop-shadow(0 0 20px #ff4d6d); } }
+    .hint-text { margin-top: 40px; font-size: 15px; color: #ffd1dc; padding: 12px 26px; border-radius: 25px; border: 1px solid rgba(255, 143, 177, 0.45); background: rgba(255, 77, 109, 0.3); animation: pulse 2s infinite; font-weight: 600; }
+    @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+
+    #wish-screen { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 40; text-align: center; opacity: 0; transition: opacity 0.8s ease-in-out; }
+    .wish-title { font-family: 'Quicksand', sans-serif; font-size: clamp(22px, 5vw, 32px); font-weight: 700; color: #ffffff; margin-bottom: 70px; text-shadow: 0 0 15px rgba(255, 105, 180, 0.8); animation: gentleBreeze 3s infinite alternate; line-height: 1.5; }
+
+    .wish-cake-container { position: relative; width: 300px; height: 260px; perspective: 1200px; transform-style: preserve-3d; margin-bottom: 50px; }
+    .wish-cake-3d { position: absolute; top: 50%; left: 50%; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateX(-10deg); animation: floatWish 4s ease-in-out infinite; }
+    @keyframes floatWish { 0%, 100% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(0); filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.4));} 50% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(-15px); filter: drop-shadow(0 0 40px rgba(255, 77, 109, 0.8));} }
+
+    .btn-blow { background: linear-gradient(135deg, #ff4d6d, #c026d3); border: 2px solid #ff9ebb; color: #fff; padding: 15px 40px; border-radius: 40px; font-size: 19px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 77, 109, 0.6); transition: all 0.3s; font-family: 'Quicksand', sans-serif; z-index: 10; }
+    .btn-blow:hover { transform: scale(1.08) translateY(-4px); box-shadow: 0 12px 35px rgba(255, 77, 109, 0.8); }
+
+    .smoke { position: absolute; width: 12px; height: 12px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; top: -105px; left: -6px; opacity: 0; filter: blur(4px); transform-origin: center bottom; }
+    .blow-active .flame-3d { opacity: 0; transition: opacity 0.2s ease-out; }
+    .blow-active .candle-light { opacity: 0; transition: opacity 0.2s ease-out; }
+    .blow-active .smoke { animation: smokeRise 1.8s ease-out forwards; }
+    @keyframes smokeRise { 0% { transform: translateY(0) scale(1); opacity: 0.9; } 100% { transform: translateY(-70px) scale(5); opacity: 0; } }
+
+    /* KHÔNG GIAN 3D ĐÚNG CHUẨN NHƯ ẢNH 2 */
+    #carousel-scene { position: absolute; inset: 0; perspective: 1200px; display: none; opacity: 0; transition: opacity 1.2s; z-index: 20; overflow: hidden; touch-action: none; }
+    #carousel-world { position: absolute; top: 50%; left: 50%; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1150px) rotateX(-7deg); cursor: grab; will-change: transform; }
+    #carousel-world:active { cursor: grabbing; }
+
+    .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fbcfe8 0%, #ff758f 60%, #9d4edd 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 45px rgba(255, 105, 180, 0.8), inset 0 0 20px #fff; }
+    .tier-bottom-top, .tier-bottom-base { position: absolute; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, #f43f5e 30%, #be123c 100%); border: 3px solid #ffe4e6; }
+    .tier-bottom-top { transform: translate(-50%, -50%) translateY(25px) rotateX(90deg); }
+    .tier-bottom-base { transform: translate(-50%, -50%) translateY(90px) rotateX(90deg); }
+    .side-panel-b { position: absolute; width: 52px; height: 65px; border-top: 4px solid #fff; transform-origin: center; background: linear-gradient(to bottom, #fda4af 0%, #e11d48 40%, #881337 100%); }
+    .tier-top-top, .tier-top-base { position: absolute; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, #f472b6 25%, #c026d3 100%); border: 3px solid #fff0f3; }
+    .tier-top-top { transform: translate(-50%, -50%) translateY(-35px) rotateX(90deg); }
+    .tier-top-base { transform: translate(-50%, -50%) translateY(20px) rotateX(90deg); }
+    .side-panel-t { position: absolute; width: 36px; height: 55px; border-top: 3.5px solid #ffe4e6; transform-origin: center; background: linear-gradient(to bottom, #fff0f3 0%, #ec4899 35%, #701a75 100%); }
+    .candle-3d { position: absolute; width: 14px; height: 52px; border-radius: 6px; background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f43f5e 6px, #f43f5e 12px); transform: translate(-50%, -50%) translateY(-65px); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
+    .candle-light { position: absolute; width: 40px; height: 40px; background: #ffb703; border-radius: 50%; transform: translate(-50%, -50%) translateY(-98px); filter: blur(15px); opacity: 0.6; pointer-events: none; }
+    .flame-3d { position: absolute; width: 18px; height: 28px; background: radial-gradient(ellipse at bottom, #fff 0%, #ffd166 40%, #ff4d6d 80%, transparent 100%); border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%; transform: translate(-50%, -50%) translateY(-98px); animation: flameMotion 0.8s infinite alternate ease-in-out; filter: drop-shadow(0 0 16px #ffbe0b) drop-shadow(0 0 35px #ff0055); }
+    @keyframes flameMotion { 0% { transform: translate(-50%, -50%) translateY(-98px) scale(0.92) rotate(-3deg); } 100% { transform: translate(-50%, -50%) translateY(-100px) scale(1.12) rotate(3deg); } }
+    .cake-3d-center { position: absolute; width: 0; height: 0; transform-style: preserve-3d; pointer-events: none; animation: spinCake 20s linear infinite; }
+    @keyframes spinCake { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+    .carousel-item { position: absolute; transform-style: preserve-3d; transition: filter 0.3s; display: flex; align-items: center; justify-content: center; }
+    .carousel-item:hover { filter: brightness(1.35) drop-shadow(0 0 30px #ff758f); z-index: 100; }
+
+    .wish-card { font-weight: 700; font-size: clamp(14px, 1.8vw, 17px); padding: 13px 32px; border-radius: 14px; background: linear-gradient(135deg, rgba(82, 11, 63, 0.92), rgba(41, 3, 44, 0.92)); border: 1.5px solid rgba(255, 143, 177, 0.7); backdrop-filter: blur(10px); box-shadow: 0 8px 25px rgba(0,0,0,0.65); color: #ffe4e6; white-space: nowrap; text-align: center; }
+    .wish-card::before, .wish-card::after { content: '✿'; color: #ff9ebb; margin: 0 10px; font-size: 13px; }
+
+    .photo-card { width: 120px; height: 155px; border-radius: 14px; overflow: hidden; border: 3px solid rgba(255, 182, 193, 0.95); box-shadow: 0 10px 30px rgba(0,0,0,0.7); background: #2b0424; }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+
+    .zoom-hint { position: absolute; top: 80px; width: 100%; text-align: center; color: #ffb3d9; font-size: 13px; opacity: 0.7; animation: pulse 2s infinite; pointer-events: none; z-index: 30; }
+
+    .controls { position: fixed; bottom: 20px; right: 20px; z-index: 70; }
+    .btn-sound { background: rgba(255, 77, 109, 0.4); border: 1px solid rgba(255, 143, 177, 0.8); color: #fff; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .btn-sound:hover { background: rgba(255, 77, 109, 0.9); transform: scale(1.1); }
+  </style>
 </head>
 <body>
 
-  <!-- Hiệu ứng hoa rơi & Khung viền -->
+  <!-- Hoa rơi lất phất & Khung viền -->
   <div id="petals-container"></div>
   <div class="floral-border top-floral">
     <div class="flower-cluster">🌸🌿🌺</div><div class="flower-cluster">🌷🍃🌹</div><div class="flower-cluster">🌺🌿🌸</div>
@@ -21,7 +108,6 @@
 
   <!-- MÀN HÌNH 1: MỞ ĐẦU -->
   <div id="intro-screen">
-    <!-- Tui đã xóa dòng chữ ở đây -->
     <h1 class="main-title">Chúc Mừng Sinh Nhật<br>Thành Trung ✨</h1>
     
     <div class="intro-cake-btn" id="cake-btn">
@@ -64,7 +150,7 @@
     <div id="carousel-world"></div>
   </div>
 
-  <!-- NÚT BẬT TẮT NHẠC -->
+  <!-- NÚT BẬT TẮT NHẠC DUY NHẤT -->
   <div class="controls">
     <button class="btn-sound" id="btn-toggle-sound" title="Bật/Tắt nhạc">🎵</button>
   </div>
@@ -72,6 +158,221 @@
   <!-- TRÌNH PHÁT NHẠC -->
   <audio id="custom-audio" src="nhac.mp3" preload="auto" loop></audio>
 
-  <script src="script.js"></script>
+  <script>
+    const petalsContainer = document.getElementById('petals-container');
+    const petalEmojis = ['🌸', '💮', '🍃', '✨', '💖'];
+    setInterval(() => {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+      petal.style.left = `${Math.random() * 100}vw`;
+      const duration = 6 + Math.random() * 5;
+      petal.style.animationDuration = `${duration}s`;
+      petal.style.setProperty('--end-x', `${(Math.random() - 0.5) * 250}px`);
+      petalsContainer.appendChild(petal);
+      setTimeout(() => petal.remove(), duration * 1000);
+    }, 350);
+
+    /* TOÀN BỘ 22 LỜI CHÚC CỦA CHANH GỬI CHUN */
+    const wishes = [
+      "Chúc Chun tuổi mới vui vẻ nhé! 🎂",
+      "Các môn học đều full A nèe 💻",
+      "Có gì thì ới Chanh giúp đỡ nheee 💗",
+      "Kì nào cũng được học bổng, lương thì ngàn đô 💵",
+      "Chúc Chun một đời bình an, vạn sự như ý 🍀",
+      "Thức khuya nhiều không có tốt cho sức khỏe đâuuuu 🌙",
+      "Mọi ước mơ của Chun đều thành hiện thực ⭐",
+      "Best Friend mãi đỉnh 🎉",
+      "Tuổi mới rực rỡ và đẹp trai hơn nữa 💖",
+      "Ê nào rảnh đi chơi đee 🤪",
+      "Lúc nào cũng ngầu ngầu, bá khíii kkk 🌞",
+      "Có chuyện gì thì đâyy, bạn thân của Chun ở đây nèee 🍓",
+      "Cảm ơn vì lúc nào cũng nghe Chanh kể chuyện, than phiền nhee 🎁",
+      "Một ngày sinh nhật thật ấm áp và hạnh phúc 🍰",
+      "Cố gắng lên, Chanh lúc nào cũng tin Chun 🌟",
+      "Làm gì cũng siêu mượt màaaa ☂️",
+      "Sớm theo đuổi được đam mê của mình nhaa 🌠",
+      "Happy Birthday Chun! 🎊",
+      "Có buồn phiền gì cứ gọi Chanh nhé 📞",
+      "Tuổi mới nhiều may mắn, deadline pass nhẹ nhàng 🗓️",
+      "Chúc tình bạn chúng mình mãi keo sơn 🥂",
+      "Nào làm quả dự án ma nè kkk ✈️"
+    ];
+
+    let userPhotos = [
+      "anh1.jpg", 
+      "anh2.jpg",
+      "anh3.jpg"
+    ];
+
+    let soundOn = true;
+    const customAudio = document.getElementById('custom-audio');
+    
+    function startMusic() {
+      customAudio.play().catch(e => console.log("Trình duyệt yêu cầu tương tác để phát nhạc"));
+    }
+    function stopMusic() {
+      customAudio.pause();
+    }
+    
+    document.getElementById('btn-toggle-sound').addEventListener('click', (e) => {
+      soundOn = !soundOn; 
+      soundOn ? startMusic() : stopMusic();
+      e.target.innerHTML = soundOn ? '🎵' : '🔇';
+    });
+
+    function create3DCake(isSpinning = false) {
+      const cake = document.createElement('div');
+      cake.className = isSpinning ? 'cake-3d-center' : '';
+      if (!isSpinning) cake.style.transformStyle = 'preserve-3d';
+
+      const plate = document.createElement('div'); plate.className = 'plate-3d'; cake.appendChild(plate);
+      
+      const bTop = document.createElement('div'); bTop.className = 'tier-bottom-top'; cake.appendChild(bTop);
+      const bBase = document.createElement('div'); bBase.className = 'tier-bottom-base'; cake.appendChild(bBase);
+      for (let i = 0; i < 12; i++) {
+        const p = document.createElement('div'); p.className = 'side-panel-b';
+        p.style.transform = `translate(-50%, -50%) translateY(57.5px) rotateY(${(i/12)*360}deg) translateZ(95px)`;
+        cake.appendChild(p);
+      }
+
+      const tTop = document.createElement('div'); tTop.className = 'tier-top-top'; cake.appendChild(tTop);
+      const tBase = document.createElement('div'); tBase.className = 'tier-top-base'; cake.appendChild(tBase);
+      for (let i = 0; i < 12; i++) {
+        const p = document.createElement('div'); p.className = 'side-panel-t';
+        p.style.transform = `translate(-50%, -50%) translateY(-7.5px) rotateY(${(i/12)*360}deg) translateZ(65px)`;
+        cake.appendChild(p);
+      }
+
+      const candle = document.createElement('div'); candle.className = 'candle-3d'; cake.appendChild(candle);
+      const candleLight = document.createElement('div'); candleLight.className = 'candle-light'; cake.appendChild(candleLight);
+      const flame = document.createElement('div'); flame.className = 'flame-3d'; cake.appendChild(flame);
+      const smoke = document.createElement('div'); smoke.className = 'smoke'; cake.appendChild(smoke);
+
+      return cake;
+    }
+
+    const introScreen = document.getElementById('intro-screen');
+    const wishScreen = document.getElementById('wish-screen');
+    const carouselScene = document.getElementById('carousel-scene');
+    const carouselWorld = document.getElementById('carousel-world');
+    const wishCakeContainer = document.getElementById('wish-cake-3d');
+    
+    document.getElementById('cake-btn').addEventListener('click', () => {
+      wishCakeContainer.innerHTML = '';
+      wishCakeContainer.appendChild(create3DCake(false));
+
+      introScreen.style.opacity = '0'; 
+      introScreen.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        introScreen.style.display = 'none'; 
+        wishScreen.style.display = 'flex';
+        setTimeout(() => wishScreen.style.opacity = '1', 50);
+      }, 800);
+    });
+
+    document.getElementById('blow-btn').addEventListener('click', () => {
+      wishCakeContainer.classList.add('blow-active');
+      
+      setTimeout(() => {
+        confetti({ particleCount: 200, spread: 180, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ff9ebb', '#ffd166', '#ffffff'] });
+        startMusic(); 
+        
+        wishScreen.style.opacity = '0';
+        setTimeout(() => {
+          wishScreen.style.display = 'none'; 
+          carouselScene.style.display = 'block';
+          build3DCarousel();
+          setTimeout(() => carouselScene.style.opacity = '1', 50);
+        }, 800);
+      }, 1200);
+    });
+
+    let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
+    let currentZoom = -1150; 
+    const minZoom = -2400, maxZoom = 250;    
+
+    function build3DCarousel() {
+      carouselWorld.innerHTML = '';
+      carouselWorld.appendChild(create3DCake(true)); 
+
+      const pool = [];
+      wishes.forEach(w => pool.push({ type: 'text', content: w }));
+      userPhotos.forEach(p => pool.push({ type: 'photo', content: p }));
+      
+      const third = Math.ceil(pool.length / 3);
+      const topTier = pool.slice(0, third);
+      const midTier = pool.slice(third, third * 2);
+      const bottomTier = pool.slice(third * 2);
+
+      const radius = Math.max(1050, (third * 480) / (2 * Math.PI)); 
+
+      function createTier(items, yOffset) {
+        const total = items.length;
+        items.forEach((data, i) => {
+          const el = document.createElement('div'); el.className = 'carousel-item';
+          
+          if (data.type === 'text') {
+            el.innerHTML = `<div class="wish-card">${data.content}</div>`;
+          } else {
+            el.innerHTML = `<div class="photo-card"><img src="${data.content}" alt="pic" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=60'"></div>`;
+          }
+
+          const angle = (i / total) * 360;
+          el.style.transform = `translate(-50%, -50%) translateY(\({yOffset}px) rotateY(\){angle}deg) translateZ(${radius}px)`;
+          
+          el.addEventListener('click', (e) => {
+            const card = e.currentTarget.firstChild;
+            card.style.transform = 'scale(1.1)';
+            setTimeout(() => card.style.transform = 'scale(1)', 300);
+            confetti({ particleCount: 20, origin: { x: e.clientX/innerWidth, y: e.clientY/innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] });
+          });
+          carouselWorld.appendChild(el);
+        });
+      }
+
+      createTier(topTier, -250);
+      createTier(midTier, 0);
+      createTier(bottomTier, 250);
+    }
+
+    function animateCarousel() {
+      if (autoRotate && !isDragging) rotY -= 0.12;
+      carouselWorld.style.transform = `translateZ(\({currentZoom}px) rotateX(-7deg) rotateY(\){rotY}deg)`;
+      requestAnimationFrame(animateCarousel);
+    }
+    requestAnimationFrame(animateCarousel);
+
+    window.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      rotY += (e.clientX - prevX) * 0.35; prevX = e.clientX;
+    });
+    window.addEventListener('mouseup', () => isDragging = false);
+
+    let initialTouchDist = 0;
+    window.addEventListener('touchstart', e => { 
+      if (e.touches.length === 1) { isDragging = true; prevX = e.touches[0].clientX; } 
+      else if (e.touches.length === 2) initialTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+    });
+    window.addEventListener('touchmove', e => {
+      if (e.touches.length === 1 && isDragging) {
+        rotY += (e.touches[0].clientX - prevX) * 0.45; prevX = e.touches[0].clientX;
+      } else if (e.touches.length === 2) {
+        const currentDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+        currentZoom += (currentDist - initialTouchDist) * 1.5;
+        currentZoom = Math.max(minZoom, Math.min(maxZoom, currentZoom));
+        initialTouchDist = currentDist;
+      }
+    });
+    window.addEventListener('touchend', () => isDragging = false);
+
+    window.addEventListener('wheel', e => {
+      if(carouselScene.style.display === 'block') {
+        currentZoom -= e.deltaY * 0.65;
+        currentZoom = Math.max(minZoom, Math.min(maxZoom, currentZoom));
+      }
+    });
+  </script>
 </body>
 </html>
