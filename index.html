@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, touch-action: none;">
-  <title>Happy Birthday Thành Trung ✨</title>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
+<!DOCTYPE html»
+<html lang="vi"»
+<head»
+  <meta charset="UTF-8"»
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, touch-action: none;"»
+  <title»Happy Birthday Thành Trung ✨</title»
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"»</script»
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"»
+  <style»
     * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
     body { background: radial-gradient(circle at center, #350529 0%, #1a021f 55%, #0a000f 100%); min-height: 100vh; overflow: hidden; font-family: 'Quicksand', sans-serif; color: #fff; }
 
@@ -21,15 +21,7 @@
     @keyframes gentleBreeze { 0% { transform: translateY(0) rotate(-3deg); } 100% { transform: translateY(5px) rotate(3deg); } }
 
     #intro-screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 50; text-align: center; transition: all 0.8s ease-in-out; }
-    
-    .main-title { 
-      font-family: 'Dancing Script', cursive; 
-      font-size: clamp(45px, 10vw, 75px); 
-      line-height: 1.2; 
-      color: #ffffff; 
-      text-shadow: 0 0 10px #ffb3d9, 0 0 20px #ff4d6d, 0 0 40px #ff4d6d, 0 0 60px #ff4d6d; 
-      margin-bottom: 45px; 
-    }
+    .main-title { font-family: 'Dancing Script', cursive; font-size: clamp(45px, 10vw, 75px); line-height: 1.2; color: #ffffff; text-shadow: 0 0 10px #ffb3d9, 0 0 20px #ff4d6d, 0 0 40px #ff4d6d, 0 0 60px #ff4d6d; margin-bottom: 45px; }
 
     .intro-cake-btn { position: relative; width: 180px; height: 180px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; animation: float 3.5s ease-in-out infinite; }
     .intro-cake-btn:hover { transform: scale(1.15); }
@@ -42,7 +34,6 @@
 
     #wish-screen { position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 40; text-align: center; opacity: 0; transition: opacity 0.8s ease-in-out; }
     .wish-title { font-family: 'Quicksand', sans-serif; font-size: clamp(22px, 5vw, 32px); font-weight: 700; color: #ffffff; margin-bottom: 70px; text-shadow: 0 0 15px rgba(255, 105, 180, 0.8); animation: gentleBreeze 3s infinite alternate; line-height: 1.5; }
-
     .wish-cake-container { position: relative; width: 300px; height: 260px; perspective: 1200px; transform-style: preserve-3d; margin-bottom: 50px; }
     .wish-cake-3d { position: absolute; top: 50%; left: 50%; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateX(-10deg); animation: floatWish 4s ease-in-out infinite; }
     @keyframes floatWish { 0%, 100% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(0); filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.4));} 50% { transform: translate(-50%, -50%) rotateX(-10deg) translateY(-15px); filter: drop-shadow(0 0 40px rgba(255, 77, 109, 0.8));} }
@@ -56,8 +47,8 @@
     .blow-active .smoke { animation: smokeRise 1.8s ease-out forwards; }
     @keyframes smokeRise { 0% { transform: translateY(0) scale(1); opacity: 0.9; } 100% { transform: translateY(-70px) scale(5); opacity: 0; } }
 
-    #carousel-scene { position: absolute; inset: 0; perspective: 1200px; display: none; opacity: 0; transition: opacity 1.2s; z-index: 20; overflow: hidden; touch-action: none; }
-    #carousel-world { position: absolute; top: 50%; left: 50%; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-1150px) rotateX(-7deg); cursor: grab; will-change: transform; }
+    #carousel-scene { position: absolute; inset: 0; perspective: 1200px; transform-style: preserve-3d; display: none; opacity: 0; transition: opacity 1.2s; z-index: 20; touch-action: none; }
+    #carousel-world { position: absolute; top: 50%; left: 50%; width: 0; height: 0; transform-style: preserve-3d; transform: translateZ(-550px) rotateX(-7deg); cursor: grab; will-change: transform; }
     #carousel-world:active { cursor: grabbing; }
 
     .plate-3d { position: absolute; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, #fbcfe8 0%, #ff758f 60%, #9d4edd 100%); transform: translate(-50%, -50%) translateY(95px) rotateX(90deg); box-shadow: 0 0 45px rgba(255, 105, 180, 0.8), inset 0 0 20px #fff; }
@@ -76,92 +67,89 @@
     .cake-3d-center { position: absolute; width: 0; height: 0; transform-style: preserve-3d; pointer-events: none; animation: spinCake 20s linear infinite; }
     @keyframes spinCake { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
-    .carousel-item { position: absolute; transform-style: preserve-3d; transition: filter 0.3s; display: flex; align-items: center; justify-content: center; }
-    .carousel-item:hover { filter: brightness(1.35) drop-shadow(0 0 30px #ff758f); z-index: 100; }
+    .carousel-item { position: absolute; top: 0; left: 0; width: 0; height: 0; transform-style: preserve-3d; display: flex; align-items: center; justify-content: center; }
+    .carousel-item:hover { filter: brightness(1.35) drop-shadow(0 0 25px #ff758f); z-index: 100; }
 
-    .wish-card { font-weight: 700; font-size: clamp(14px, 1.8vw, 17px); padding: 13px 32px; border-radius: 14px; background: linear-gradient(135deg, rgba(82, 11, 63, 0.92), rgba(41, 3, 44, 0.92)); border: 1.5px solid rgba(255, 143, 177, 0.7); backdrop-filter: blur(10px); box-shadow: 0 8px 25px rgba(0,0,0,0.65); color: #ffe4e6; white-space: nowrap; text-align: center; }
-    .wish-card::before, .wish-card::after { content: '✿'; color: #ff9ebb; margin: 0 10px; font-size: 13px; }
+    .wish-card { font-weight: 700; font-size: clamp(13px, 1.6vw, 16px); padding: 11px 26px; border-radius: 14px; background: linear-gradient(135deg, rgba(74, 14, 53, 0.95), rgba(38, 5, 32, 0.95)); border: 1.5px solid rgba(255, 143, 177, 0.85); box-shadow: 0 6px 20px rgba(0,0,0,0.6); color: #ffe4e6; white-space: nowrap; text-align: center; }
+    .wish-card::before, .wish-card::after { content: '✿'; color: #ff9ebb; margin: 0 8px; font-size: 12px; }
 
-    .photo-card { width: 120px; height: 155px; border-radius: 14px; overflow: hidden; border: 3px solid rgba(255, 182, 193, 0.95); box-shadow: 0 10px 30px rgba(0,0,0,0.7); background: #2b0424; }
+    .photo-card { width: 110px; height: 140px; border-radius: 14px; overflow: hidden; border: 3px solid rgba(255, 182, 193, 0.95); box-shadow: 0 8px 25px rgba(0,0,0,0.7); background: #2b0424; }
     .photo-card img { width: 100%; height: 100%; object-fit: cover; }
 
     .zoom-hint { position: absolute; top: 80px; width: 100%; text-align: center; color: #ffb3d9; font-size: 13px; opacity: 0.7; animation: pulse 2s infinite; pointer-events: none; z-index: 30; }
-
     .controls { position: fixed; bottom: 20px; right: 20px; z-index: 70; }
     .btn-sound { background: rgba(255, 77, 109, 0.4); border: 1px solid rgba(255, 143, 177, 0.8); color: #fff; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
     .btn-sound:hover { background: rgba(255, 77, 109, 0.9); transform: scale(1.1); }
-  </style>
-</head>
-<body>
+  </style»
+</head»
+<body»
+  <div id="petals-container"»</div»
+  <div class="floral-border top-floral"»
+    <div class="flower-cluster"»🌸🌿🌺</div»<div class="flower-cluster"»🌷🍃🌹</div»<div class="flower-cluster"»🌺🌿🌸</div»
+  </div»
+  <div class="floral-border bottom-floral"»
+    <div class="flower-cluster"»🌹🍃🌷</div»<div class="flower-cluster"»🌸🌿🌺</div»<div class="flower-cluster"»🌷🍃🌹</div»
+  </div»
 
-  <div id="petals-container"></div>
-  <div class="floral-border top-floral">
-    <div class="flower-cluster">🌸🌿🌺</div><div class="flower-cluster">🌷🍃🌹</div><div class="flower-cluster">🌺🌿🌸</div>
-  </div>
-  <div class="floral-border bottom-floral">
-    <div class="flower-cluster">🌹🍃🌷</div><div class="flower-cluster">🌸🌿🌺</div><div class="flower-cluster">🌷🍃🌹</div>
-  </div>
+  <div id="intro-screen"»
+    <h1 class="main-title"»Chúc Mừng Sinh Nhật<br»Thành Trung ✨</h1»
+    <div class="intro-cake-btn" id="cake-btn"»
+      <svg class="cake-svg" viewBox="0 0 130 130" fill="none"»
+        <circle cx="65" cy="22" r="14" fill="#ffd166" opacity="0.3" class="flame-anim"/»
+        <path d="M65 14C62 21 60 24 65 30C70 24 68 21 65 14Z" fill="#ffb703" class="flame-anim"/»
+        <path d="M65 17C63.5 21 62.5 23 65 27C67.5 23 66.5 21 65 17Z" fill="#fff" class="flame-anim"/»
+        <rect x="62.5" y="30" width="5" height="18" rx="2.5" fill="#ffe4e6"/»
+        <line x1="62.5" y1="35" x2="67.5" y2="38" stroke="#ff4d6d" stroke-width="1.5"/»
+        <line x1="62.5" y1="41" x2="67.5" y2="44" stroke="#ff4d6d" stroke-width="1.5"/»
+        <rect x="36" y="48" width="58" height="30" rx="8" fill="#e05780"/»
+        <path d="M36 56C40 56 42 61 46 61C50 61 52 56 56 56C60 56 62 61 66 61C70 61 72 56 76 56C80 56 82 61 86 61C90 61 92 56 94 56V48H36V56Z" fill="#fff0f3"/»
+        <circle cx="50" cy="65" r="2.2" fill="#fff" opacity="0.9"/»
+        <circle cx="65" cy="67" r="2.2" fill="#fff" opacity="0.9"/»
+        <circle cx="80" cy="65" r="2.2" fill="#fff" opacity="0.9"/»
+        <rect x="22" y="78" width="86" height="38" rx="10" fill="#9d4edd"/»
+        <path d="M22 86C27 86 30 92 35 92C40 92 43 86 48 86C53 86 56 92 61 92C66 92 69 86 74 86C79 86 82 92 87 92C92 92 95 86 100 86C104 86 106 90 108 90V78H22V86Z" fill="#ff758f"/»
+        <circle cx="38" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/»
+        <circle cx="56" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/»
+        <circle cx="74" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/»
+        <circle cx="92" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/»
+        <rect x="14" y="115" width="102" height="7" rx="3.5" fill="#ffd1dc" opacity="0.9"/»
+      </svg»
+    </div»
+    <div class="hint-text"»✨ Chạm vào bánh sinh nhật để mở quà ✨</div»
+  </div»
 
-  <div id="intro-screen">
-    <h1 class="main-title">Chúc Mừng Sinh Nhật<br>Thành Trung ✨</h1>
-    
-    <div class="intro-cake-btn" id="cake-btn">
-      <svg class="cake-svg" viewBox="0 0 130 130" fill="none">
-        <circle cx="65" cy="22" r="14" fill="#ffd166" opacity="0.3" class="flame-anim"/>
-        <path d="M65 14C62 21 60 24 65 30C70 24 68 21 65 14Z" fill="#ffb703" class="flame-anim"/>
-        <path d="M65 17C63.5 21 62.5 23 65 27C67.5 23 66.5 21 65 17Z" fill="#fff" class="flame-anim"/>
-        <rect x="62.5" y="30" width="5" height="18" rx="2.5" fill="#ffe4e6"/>
-        <line x1="62.5" y1="35" x2="67.5" y2="38" stroke="#ff4d6d" stroke-width="1.5"/>
-        <line x1="62.5" y1="41" x2="67.5" y2="44" stroke="#ff4d6d" stroke-width="1.5"/>
-        <rect x="36" y="48" width="58" height="30" rx="8" fill="#e05780"/>
-        <path d="M36 56C40 56 42 61 46 61C50 61 52 56 56 56C60 56 62 61 66 61C70 61 72 56 76 56C80 56 82 61 86 61C90 61 92 56 94 56V48H36V56Z" fill="#fff0f3"/>
-        <circle cx="50" cy="65" r="2.2" fill="#fff" opacity="0.9"/>
-        <circle cx="65" cy="67" r="2.2" fill="#fff" opacity="0.9"/>
-        <circle cx="80" cy="65" r="2.2" fill="#fff" opacity="0.9"/>
-        <rect x="22" y="78" width="86" height="38" rx="10" fill="#9d4edd"/>
-        <path d="M22 86C27 86 30 92 35 92C40 92 43 86 48 86C53 86 56 92 61 92C66 92 69 86 74 86C79 86 82 92 87 92C92 92 95 86 100 86C104 86 106 90 108 90V78H22V86Z" fill="#ff758f"/>
-        <circle cx="38" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/>
-        <circle cx="56" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/>
-        <circle cx="74" cy="102" r="2.5" fill="#fbcfe8" opacity="0.8"/>
-        <circle cx="92" cy="99" r="2.5" fill="#fbcfe8" opacity="0.8"/>
-        <rect x="14" y="115" width="102" height="7" rx="3.5" fill="#ffd1dc" opacity="0.9"/>
-      </svg>
-    </div>
-    <div class="hint-text">✨ Chạm vào bánh sinh nhật để mở quà ✨</div>
-  </div>
+  <div id="wish-screen"»
+    <h2 class="wish-title"»Chun ước đi nè, ước xong thì thổi nến nha! 🎂</h2»
+    <div class="wish-cake-container"»
+      <div class="wish-cake-3d" id="wish-cake-3d"»</div»
+    </div»
+    <button id="blow-btn" class="btn-blow"»Thổi nến 🌬️</button»
+  </div»
 
-  <div id="wish-screen">
-    <h2 class="wish-title">Chun ước đi nè, ước xong thì thổi nến nha! 🎂</h2>
-    <div class="wish-cake-container">
-      <div class="wish-cake-3d" id="wish-cake-3d"></div>
-    </div>
-    <button id="blow-btn" class="btn-blow">Thổi nến 🌬️</button>
-  </div>
+  <div id="carousel-scene"»
+    <div class="zoom-hint"»🖱️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div»
+    <div id="carousel-world"»</div»
+  </div»
 
-  <div id="carousel-scene">
-    <div class="zoom-hint">🖱️ Cuộn chuột / Vuốt 2 ngón tay để Phóng to - Thu nhỏ</div>
-    <div id="carousel-world"></div>
-  </div>
+  <div class="controls"»
+    <button class="btn-sound" id="btn-toggle-sound" title="Bật/Tắt nhạc"»🎵</button»
+  </div»
 
-  <div class="controls">
-    <button class="btn-sound" id="btn-toggle-sound" title="Bật/Tắt nhạc">🎵</button>
-  </div>
+  <audio id="custom-audio" src="nhac.mp3" preload="auto" loop»</audio»
 
-  <audio id="custom-audio" src="nhac.mp3" preload="auto" loop></audio>
-
-  <script>
+  <script»
     const petalsContainer = document.getElementById('petals-container');
     const petalEmojis = ['🌸', '💮', '🍃', '✨', '💖'];
-    setInterval(() => {
+    setInterval(() =» {
       const petal = document.createElement('div');
       petal.className = 'petal';
       petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-      petal.style.left = `${Math.random() * 100}vw`;
+      petal.style.left = \`\${Math.random() * 100}vw\`;
       const duration = 6 + Math.random() * 5;
-      petal.style.animationDuration = `${duration}s`;
-      petal.style.setProperty('--end-x', `${(Math.random() - 0.5) * 250}px`);
+      petal.style.animationDuration = \`\${duration}s\`;
+      petal.style.setProperty('--end-x', \`\${(Math.random() - 0.5) * 250}px\`);
       petalsContainer.appendChild(petal);
-      setTimeout(() => petal.remove(), duration * 1000);
+      setTimeout(() =» petal.remove(), duration * 1000);
     }, 350);
 
     const wishes = [
@@ -189,56 +177,38 @@
       "Nào làm quả dự án ma nè kkk ✈️"
     ];
 
-    let userPhotos = [
-      "anh1.jpg", 
-      "anh2.jpg",
-      "anh3.jpg"
-    ];
-
+    let userPhotos = ["anh1.jpg", "anh2.jpg", "anh3.jpg"];
     let soundOn = true;
     const customAudio = document.getElementById('custom-audio');
-    
-    function startMusic() {
-      customAudio.play().catch(e => console.log("Trình duyệt yêu cầu tương tác để phát nhạc"));
-    }
-    function stopMusic() {
-      customAudio.pause();
-    }
-    
-    document.getElementById('btn-toggle-sound').addEventListener('click', (e) => {
-      soundOn = !soundOn; 
-      soundOn ? startMusic() : stopMusic();
-      e.target.innerHTML = soundOn ? '🎵' : '🔇';
+    function startMusic() { customAudio.play().catch(e =» console.log("Play blocked")); }
+    function stopMusic() { customAudio.pause(); }
+    document.getElementById('btn-toggle-sound').addEventListener('click', (e) =» {
+      soundOn = !soundOn; soundOn ? startMusic() : stopMusic(); e.target.innerHTML = soundOn ? '🎵' : '🔇';
     });
 
     function create3DCake(isSpinning = false) {
       const cake = document.createElement('div');
       cake.className = isSpinning ? 'cake-3d-center' : '';
       if (!isSpinning) cake.style.transformStyle = 'preserve-3d';
-
       const plate = document.createElement('div'); plate.className = 'plate-3d'; cake.appendChild(plate);
-      
       const bTop = document.createElement('div'); bTop.className = 'tier-bottom-top'; cake.appendChild(bTop);
       const bBase = document.createElement('div'); bBase.className = 'tier-bottom-base'; cake.appendChild(bBase);
       for (let i = 0; i < 12; i++) {
         const p = document.createElement('div'); p.className = 'side-panel-b';
-        p.style.transform = `translate(-50%, -50%) translateY(57.5px) rotateY(${(i/12)*360}deg) translateZ(95px)`;
+        p.style.transform = \`translate(-50%, -50%) translateY(57.5px) rotateY(\${(i/12)*360}deg) translateZ(95px)\`;
         cake.appendChild(p);
       }
-
       const tTop = document.createElement('div'); tTop.className = 'tier-top-top'; cake.appendChild(tTop);
       const tBase = document.createElement('div'); tBase.className = 'tier-top-base'; cake.appendChild(tBase);
       for (let i = 0; i < 12; i++) {
         const p = document.createElement('div'); p.className = 'side-panel-t';
-        p.style.transform = `translate(-50%, -50%) translateY(-7.5px) rotateY(${(i/12)*360}deg) translateZ(65px)`;
+        p.style.transform = \`translate(-50%, -50%) translateY(-7.5px) rotateY(\${(i/12)*360}deg) translateZ(65px)\`;
         cake.appendChild(p);
       }
-
       const candle = document.createElement('div'); candle.className = 'candle-3d'; cake.appendChild(candle);
       const candleLight = document.createElement('div'); candleLight.className = 'candle-light'; cake.appendChild(candleLight);
       const flame = document.createElement('div'); flame.className = 'flame-3d'; cake.appendChild(flame);
       const smoke = document.createElement('div'); smoke.className = 'smoke'; cake.appendChild(smoke);
-
       return cake;
     }
 
@@ -248,104 +218,88 @@
     const carouselWorld = document.getElementById('carousel-world');
     const wishCakeContainer = document.getElementById('wish-cake-3d');
     
-    document.getElementById('cake-btn').addEventListener('click', () => {
+    document.getElementById('cake-btn').addEventListener('click', () =» {
       wishCakeContainer.innerHTML = '';
       wishCakeContainer.appendChild(create3DCake(false));
-
-      introScreen.style.opacity = '0'; 
-      introScreen.style.transform = 'scale(0.9)';
-      setTimeout(() => {
-        introScreen.style.display = 'none'; 
-        wishScreen.style.display = 'flex';
-        setTimeout(() => wishScreen.style.opacity = '1', 50);
+      introScreen.style.opacity = '0'; introScreen.style.transform = 'scale(0.9)';
+      setTimeout(() =» {
+        introScreen.style.display = 'none'; wishScreen.style.display = 'flex';
+        setTimeout(() =» wishScreen.style.opacity = '1', 50);
       }, 800);
     });
 
-    document.getElementById('blow-btn').addEventListener('click', () => {
+    document.getElementById('blow-btn').addEventListener('click', () =» {
       wishCakeContainer.classList.add('blow-active');
-      
-      setTimeout(() => {
+      setTimeout(() =» {
         confetti({ particleCount: 200, spread: 180, origin: { y: 0.6 }, colors: ['#ff4d6d', '#ff9ebb', '#ffd166', '#ffffff'] });
-        startMusic(); 
-        
+        startMusic();
         wishScreen.style.opacity = '0';
-        setTimeout(() => {
-          wishScreen.style.display = 'none'; 
-          carouselScene.style.display = 'block';
+        setTimeout(() =» {
+          wishScreen.style.display = 'none'; carouselScene.style.display = 'block';
           build3DCarousel();
-          setTimeout(() => carouselScene.style.opacity = '1', 50);
+          setTimeout(() =» carouselScene.style.opacity = '1', 50);
         }, 800);
       }, 1200);
     });
 
     let rotY = 0, autoRotate = true, isDragging = false, prevX = 0;
-    let currentZoom = -1150; 
-    const minZoom = -2400, maxZoom = 250;    
+    let currentZoom = -550; 
+    const minZoom = -1500, maxZoom = 150;
 
     function build3DCarousel() {
       carouselWorld.innerHTML = '';
-      carouselWorld.appendChild(create3DCake(true)); 
+      carouselWorld.appendChild(create3DCake(true));
 
       const pool = [];
-      wishes.forEach(w => pool.push({ type: 'text', content: w }));
-      userPhotos.forEach(p => pool.push({ type: 'photo', content: p }));
+      wishes.forEach(w =» pool.push({ type: 'text', content: w }));
+      userPhotos.forEach(p =» pool.push({ type: 'photo', content: p }));
       
       const third = Math.ceil(pool.length / 3);
       const topTier = pool.slice(0, third);
       const midTier = pool.slice(third, third * 2);
       const bottomTier = pool.slice(third * 2);
-
-      const radius = Math.max(1050, (third * 480) / (2 * Math.PI)); 
+      const radius = 440; 
 
       function createTier(items, yOffset) {
         const total = items.length;
-        items.forEach((data, i) => {
+        items.forEach((data, i) =» {
           const el = document.createElement('div'); el.className = 'carousel-item';
-          
           if (data.type === 'text') {
-            el.innerHTML = `<div class="wish-card">${data.content}</div>`;
+            el.innerHTML = \`<div class="wish-card"»\${data.content}</div»\`;
           } else {
-            el.innerHTML = `<div class="photo-card"><img src="${data.content}" alt="pic" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=60'"></div>`;
+            el.innerHTML = \`<div class="photo-card"»<img src="\${data.content}" alt="pic" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=60'"»</div»\`;
           }
-
           const angle = (i / total) * 360;
-          el.style.transform = `translate(-50%, -50%) translateY(\({yOffset}px) rotateY(\){angle}deg) translateZ(${radius}px)`;
-          
-          el.addEventListener('click', (e) => {
-            const card = e.currentTarget.firstChild;
-            card.style.transform = 'scale(1.1)';
-            setTimeout(() => card.style.transform = 'scale(1)', 300);
-            confetti({ particleCount: 20, origin: { x: e.clientX/innerWidth, y: e.clientY/innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] });
-          });
+          el.style.transform = \`translate(-50%, -50%) rotateY(\${angle}deg) translateZ(\${radius}px) translateY(\${yOffset}px)\`;
+          el.addEventListener('click', (e) =» confetti({ particleCount: 25, origin: { x: e.clientX/innerWidth, y: e.clientY/innerHeight }, colors: ['#ff4d6d', '#ff9ebb'] }));
           carouselWorld.appendChild(el);
         });
       }
 
-      createTier(topTier, -250);
+      createTier(topTier, -150);
       createTier(midTier, 0);
-      createTier(bottomTier, 250);
+      createTier(bottomTier, 150);
     }
 
     function animateCarousel() {
-      if (autoRotate && !isDragging) rotY -= 0.12;
-      carouselWorld.style.transform = `translateZ(\({currentZoom}px) rotateX(-7deg) rotateY(\){rotY}deg)`;
+      if (autoRotate && !isDragging) rotY -= 0.14;
+      carouselWorld.style.transform = \`translateZ(\${currentZoom}px) rotateX(-7deg) rotateY(\${rotY}deg)\`;
       requestAnimationFrame(animateCarousel);
     }
     requestAnimationFrame(animateCarousel);
 
-    window.addEventListener('mousedown', e => { isDragging = true; prevX = e.clientX; });
-    window.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      rotY += (e.clientX - prevX) * 0.35; prevX = e.clientX;
+    window.addEventListener('mousedown', e =» { isDragging = true; prevX = e.clientX; });
+    window.addEventListener('mousemove', e =» {
+      if (!isDragging) return; rotY += (e.clientX - prevX) * 0.35; prevX = e.clientX;
     });
-    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mouseup', () =» isDragging = false);
 
     let initialTouchDist = 0;
-    window.addEventListener('touchstart', e => { 
+    window.addEventListener('touchstart', e =» { 
       if (e.touches.length === 1) { isDragging = true; prevX = e.touches[0].clientX; } 
       else if (e.touches.length === 2) initialTouchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
     });
-    window.addEventListener('touchmove', e => {
+    window.addEventListener('touchmove', e =» {
       if (e.touches.length === 1 && isDragging) {
         rotY += (e.touches[0].clientX - prevX) * 0.45; prevX = e.touches[0].clientX;
       } else if (e.touches.length === 2) {
@@ -355,14 +309,13 @@
         initialTouchDist = currentDist;
       }
     });
-    window.addEventListener('touchend', () => isDragging = false);
-
-    window.addEventListener('wheel', e => {
-      if(carouselScene.style.display === 'block') {
+    window.addEventListener('touchend', () =» isDragging = false);
+    window.addEventListener('wheel', e =» {
+      if (carouselScene.style.display === 'block') {
         currentZoom -= e.deltaY * 0.65;
         currentZoom = Math.max(minZoom, Math.min(maxZoom, currentZoom));
       }
     });
-  </script>
-</body>
-</html>
+  </script»
+</body»
+</html»
